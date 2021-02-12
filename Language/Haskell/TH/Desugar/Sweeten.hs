@@ -74,7 +74,7 @@ matchToTH (DMatch pat exp) = Match (patToTH pat) (NormalB (expToTH exp)) []
 patToTH :: DPat -> Pat
 patToTH (DLitP lit)    = LitP lit
 patToTH (DVarP n)      = VarP n
-patToTH (DConP n pats) = ConP n (map patToTH pats)
+patToTH (DConP n pats) = ConP n [] (map patToTH pats)
 patToTH (DTildeP pat)  = TildeP (patToTH pat)
 patToTH (DBangP pat)   = BangP (patToTH pat)
 patToTH (DSigP pat ty) = SigP (patToTH pat) (typeToTH ty)
